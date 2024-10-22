@@ -26,7 +26,7 @@ To use this project, you need an API key from The Movie Database (https://develo
 - Open the js/app.js file in your code editor.
 - Find the following line at the top of the file: 
 const API_KEY = 'my-API-key-here'; // Insert my API key here
-- Replace 'my-API-key-here' with your actual API key.
+- Replace 'my-API-key-here' with my actual API key.
 - Save the changes.
 
 ## How to Use
