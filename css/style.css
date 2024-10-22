@@ -1,0 +1,300 @@
+/* Global reset*/
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* Main body styling */
+body {
+  background-color: #1a191f;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Container for layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header styling */
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  height: 60px;
+}
+
+.header__logo {
+  font-size: 32px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.header__search {
+  padding: 8px;
+  border: 2px solid #1a191f;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Main styling for movie elements */
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.movie {
+  width: 240px;
+  margin: 10px;
+  position: relative;
+}
+
+.movie__cover-inner {
+  position: relative;/* For overlaying elements like darkened cover */
+  height: 360px;
+}
+
+.movie__cover {
+  max-width: 100%;
+  height: 100%;
+}
+
+/* Darkened overlay over movie cover */
+.movie__cover--darkened {
+  background-color: #000000;
+  opacity: 0.1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.movie__cover--darkened:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+.movie__info {
+  padding: 10px 0px;
+}
+
+/* Movie title styling */
+.movie__title {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* Movie category (genres) styling */
+.movie__category {
+  font-size: 14px;
+  color: #ffd80e;
+}
+
+/* Movie rating badge */
+.movie__average {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2; /* Higher than darkened overlay */
+  right: 0;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a191f;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+/* Rating color classes based on score */
+.movie__average--green {
+  border: 3px solid green;
+}
+
+.movie__average--orange {
+  border: 2px solid orange;
+}
+
+.movie__average--red {
+  border: 2px solid red;
+}
+
+/* Pagination button styling */
+.pagination {
+  display: flex;
+  justify-content: left;
+  padding: 16px;
+}
+
+.pagination__button {
+  background-color: #1a191f; 
+  color: #ffffff; 
+  border: 2px solid #ffd80e; 
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination__button:hover {
+  background-color: #ffd80e; 
+  color: #1a191f; 
+}
+
+.pagination__but {
+  background-color: #1a191f; 
+  color: #ffffff; 
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+/* Disabled button state */
+.pagination__button:disabled {
+  background-color: #555555; 
+  color: #999999; 
+  border-color: #555555;
+  cursor: not-allowed;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 767px) {
+  .pagination__button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination__button {
+    font-size: 12px;
+    padding: 6px 12px;
+    margin: 0 5px;
+  }
+}
+
+/* Modal window styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100; /* Ensure it's above other content */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Allow scrolling if needed */
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: width 2s;
+}
+
+.modal--show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__card {
+  background-color: #ffffff;
+  max-width: 600px;
+  padding: 16px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  background-color: #1a191f;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__movie-backdrop {
+  width: 200px;
+  margin: 0 auto
+}
+
+.modal__movie-info {
+  margin-left: 20px;
+}
+
+.modal__button-close {
+  padding: 5px;
+  margin: 10px;
+  align-self: center;
+}
+
+.modal__movie-site {
+  color: #ffd80e
+}
+
+ul li {
+  padding: 5px;
+}
+
+/* Stop scrolling when modal is open */
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Media queries */
+
+/* Styles for tablet screens (width from 768px to 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .movie {
+    width: 200px; 
+  }
+
+  .movie__cover-inner {
+    height: 300px; 
+  }
+
+  .header__logo {
+    font-size: 28px; 
+  }
+}
+
+/* Styles for mobile screens (width from 480px to 767px) */
+@media (max-width: 767px) and (min-width: 480px) {
+  .movie {
+    width: 150px; 
+  }
+
+  .movie__cover-inner {
+    height: 225px; 
+  }
+
+  .header__logo {
+    font-size: 24px;
+  }
+
+  .movies {
+    justify-content: center; 
+  }
+}
+
+/* Styles for very small screens (less than 480px) */
+@media (max-width: 480px) {
+  .movie {
+    width: 120px; 
+  }
+
+  .movie__cover-inner {
+    height: 180px; 
+  }
+
+  .header__logo {
+    font-size: 20px; 
+  }
+
+  .movies {
+    justify-content: center; 
+  }
+}
